@@ -8,14 +8,9 @@ use Illuminate\Support\Facades\Http;
 
 class JobController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
+    public function index($page=1)
     {
-        $page =$request->input('page');
+        //$page =$request->input('page');
         $page=$page==""?$page=1:$page;
 
         $total_page =count(json_decode(Http::get("http://dev3.dansmultipro.co.id/api/recruitment/positions.json")))/10;
@@ -30,12 +25,6 @@ class JobController extends Controller
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function detail($id)
     {
         $data =json_decode(Http::get("http://dev3.dansmultipro.co.id/api/recruitment/positions/$id"));
@@ -45,12 +34,6 @@ class JobController extends Controller
         ]);
     }
 
-    /**
-     * Search by name
-     *
-     * @param  string  $name
-     * @return \Illuminate\Http\Response
-     */
     public function search(Request $request)
     {
         $job_desc =$request->input('job_desc');
@@ -72,7 +55,7 @@ class JobController extends Controller
         return view("home",[
             "title"=>"Home",
             "positions"=>$positions,
-            "pagination"=>$pagination
+            "pagination"=>""
         ]);
     }
 }

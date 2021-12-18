@@ -22,7 +22,7 @@ Route::post("/login",[AuthController::class,'do_login']);
 
 //Route::group(['middleware'=>['auth:sanctum']], function () {
     Route::get('/',[JobController::class,'index']);
-    Route::get('/{page}',[JobController::class,'index']);
+    Route::get('/page/{page}',[JobController::class,'index']);
 
     Route::get('/detail/{id}',[JobController::class,'detail']);
     Route::get('/search',[JobController::class,'search']);

@@ -65,11 +65,13 @@
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li> -->
-    <?php for($i=0; $i<$pagination['total_page']; $i++){
+    <?php 
+    if($pagination!=""){
+    for($i=0; $i<$pagination['total_page']; $i++){
         $page=$i+1;
         ?>
-    <li class="page-item <?php echo $page==$pagination["current_page"]?"active":"";?> "><a class="page-link" href="/?page={{ $page }}">{{ $page }}</a></li>
-    <?php }?>
+    <li class="page-item <?php echo $page==$pagination["current_page"]?"active":"";?> "><a class="page-link" href="/page/{{ $page }}">{{ $page }}</a></li>
+    <?php }}?>
     <!-- <li class="page-item">
       <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
