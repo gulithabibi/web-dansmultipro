@@ -2,7 +2,8 @@
 
 @section('container')
     <div class="border p-4">
-    <h3>{{ $data->title }}</h3>
+    <span class="text-muted fw-lighter">{{ $data->type." / ".$data->location }}</span>
+    <h3 class="text-primary">{{ $data->title }}</h3>
     <hr>
     <div class="row align-items-start">
         <div class="col-md-8">

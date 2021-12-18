@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="col-md-2">
-        <button class="btn btn-dark mt-4" type="submit">Search</button>
+        <button class="btn btn-success mt-4" type="submit">Search</button>
     </div>
 </div>
 </form>
@@ -48,11 +48,21 @@
       if($item!=null){
       ?>
   <a href="/detail/<?php echo $item->id?>" class="list-group-item list-group-item-action" aria-current="true">
+    <div class="row">
+      <div class="col-md-8">
+        <h5 class="mb-1 text-primary">{{  $item->title  }}</h5>
+        <p class="mb-1"><span class="text-secondary">{{  $item->company  }}</span>  - <span class="text-success fw-bold">{{  $item->type  }}</span> </p>
+      </div>
+      <div class="col-md-4 d-block text-right" style="text-align:right">
+        <span class="fw-bold d-block">{{  $item->location  }}</span>
+        <span class="text-muted fw-lighter">{{  date('d M Y', strtotime($item->created_at))  }}</span>
+      </div>
+    </div>  
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{  $item->title  }}</h5>
-      <small>{{  $item->location  }}<br>{{  $item->created_at  }}</small>
+      
+      
     </div>
-    <p class="mb-1">{{  $item->company  }} - {{  $item->type  }}</p>
+    
   </a>
   
   <?php }}?>
