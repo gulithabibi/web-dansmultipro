@@ -17,3 +17,6 @@
 
 ## ScreenShoot 
 - path: web-dansmultipro\ScreenShoot
+
+## SQL
+- path: web-dansmultipro\dans_job.sql
