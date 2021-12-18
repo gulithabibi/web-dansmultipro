@@ -22,20 +22,20 @@ class AuthController extends Controller
             'password'=>'required|string',
         ]);
 
-        // //check email
-        // $user=User::where('email',$fields['email'])->first();
+        //check email
+        $user=User::where('email',$fields['email'])->first();
 
-        // //check password
-        // if(!$user || !Hash::check($fields['password'],$user->password)){
-        //     return redirect()->intended('/login');
-        // }
+        //check password
+        if(!$user || !Hash::check($fields['password'],$user->password)){
+            return redirect()->intended('/login');
+        }
 
-        // //get token
-        // $token=$user->createToken('myapptoken')->plainTextToken;
+        //get token
+        $token=$user->createToken('myapptoken')->plainTextToken;
 
-        // return redirect()->intended('/');
+        return redirect()->intended('/');
 
-        dd("berajsl login");
+        //dd("berajsl login");
         
     }
 
