@@ -16,8 +16,8 @@ use Illuminate\Http\Request;
 |
 */
 Route::get("/register",[AuthController::class,'register'])->middleware('guest');
-Route::get('/',[AuthController::class,'login'])->middleware('guest');
-Route::get("/login",[AuthController::class,'login'])->middleware('guest');
+Route::get('/',[AuthController::class,'login'])->middleware('guest')->middleware('guest');
+Route::get("/login",[AuthController::class,'login'])->name('login')->middleware('guest');
 Route::post("/login",[AuthController::class,'authenticate']);
 Route::post("/logout",[AuthController::class,'logout']);
 
@@ -25,10 +25,9 @@ Route::post("/logout",[AuthController::class,'logout']);
 //Route::group(['middleware'=>['auth:sanctum']], function () {
     
     Route::get('/home',[JobController::class,'index'])->middleware('auth');
-    Route::get('/page/{page}',[JobController::class,'index']);
-
-    Route::get('/detail/{id}',[JobController::class,'detail']);
-    Route::get('/search',[JobController::class,'search']);
+    Route::get('/page/{page}',[JobController::class,'index'])->middleware('auth');
+    Route::get('/detail/{id}',[JobController::class,'detail'])->middleware('auth');
+    Route::get('/search',[JobController::class,'search'])->middleware('auth');
 //});
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

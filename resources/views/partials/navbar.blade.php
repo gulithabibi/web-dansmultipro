@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<!-- <div class="container"> -->
+<nav class="navbar navbar-expand-lg  navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand" href="/home"><b>Dans</b> Jobs</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,3 +37,4 @@
         </div>
     </div>
     </nav>
+<!-- </div> -->
