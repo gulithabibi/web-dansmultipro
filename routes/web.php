@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get("/login",[AuthController::class,'login']);
-Route::post("/login",[AuthController::class,'do_login']);
+Route::post("/login",[AuthController::class,'authenticate']);
 
 
 //Route::group(['middleware'=>['auth:sanctum']], function () {

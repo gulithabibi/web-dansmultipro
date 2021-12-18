@@ -41,6 +41,7 @@ class JobController extends Controller
         $is_fulltime = $request->input('is_fulltime');
 
         $positions =json_decode(Http::get("http://dev3.dansmultipro.co.id/api/recruitment/positions.json?description=".$job_desc."&location=".$location));
+        $pagination=["total_page"=>count($positions)/10,"current_page"=>1];
 
         if($is_fulltime=="on"){
             $temp=array();
@@ -55,7 +56,7 @@ class JobController extends Controller
         return view("home",[
             "title"=>"Home",
             "positions"=>$positions,
-            "pagination"=>""
+            "pagination"=>$pagination
         ]);
     }
 }

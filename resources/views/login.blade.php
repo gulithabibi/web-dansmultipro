@@ -35,20 +35,20 @@
     <!-- Custom styles for this template -->
     <link href="css/signin.css" rel="stylesheet">
   </head>
-  <body class="text-center">
+  <body class="">
     
 <main class="form-signin">
   <form action="/login" method="post">
   @csrf
     <!-- <img class="mb-4" src="" alt="" width="72" height="57"> -->
-    <h1 class="h3 mb-3 fw-normal">Please Login</h1>
+    <h1 class="h3 mb-3 fw-normal text-center">Please Login</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="name@example.com" autofocus reuired value="{{ old('email') }}">
+      <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">
       <label for="email">Email address</label>
       @error('email')
         <div class="invalid-feedback">
-            {{  }}
+            {{ $message }}
         </div>
       @enderror
     </div>
@@ -63,6 +63,6 @@
 </main>
 
 
-    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
