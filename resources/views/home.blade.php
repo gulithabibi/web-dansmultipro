@@ -54,7 +54,7 @@
         <p class="mb-1"><span class="text-secondary">{{  $item->company  }}</span>  - <span class="text-success fw-bold">{{  $item->type  }}</span> </p>
       </div>
       <div class="col-md-4 d-block text-right" style="text-align:right">
-        <span class="fw-bold d-block">{{  $item->location  }}</span>
+        <span class="fw-bold text-muted d-block">{{  $item->location  }}</span>
         <span class="text-muted fw-lighter">{{  date('d M Y', strtotime($item->created_at))  }}</span>
       </div>
     </div>  

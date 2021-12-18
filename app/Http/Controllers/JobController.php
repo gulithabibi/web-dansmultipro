@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -10,7 +9,6 @@ class JobController extends Controller
 {
     public function index($page=1)
     {
-        //$page =$request->input('page');
         $page=$page==""?$page=1:$page;
 
         $total_page =count(json_decode(Http::get("http://dev3.dansmultipro.co.id/api/recruitment/positions.json")))/10;

@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
+    <a href="/home" class="btn btn-link"><i class="bi bi-arrow-left-circle"></i>Back</a>
     <div class="border p-4">
     <span class="text-muted fw-lighter">{{ $data->type." / ".$data->location }}</span>
     <h3 class="text-primary">{{ $data->title }}</h3>

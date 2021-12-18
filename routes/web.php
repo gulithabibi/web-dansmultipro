@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get("/register",[AuthController::class,'register'])->middleware('guest');
 Route::get("/login",[AuthController::class,'login'])->middleware('guest');
 Route::post("/login",[AuthController::class,'authenticate']);
 Route::post("/logout",[AuthController::class,'logout']);
