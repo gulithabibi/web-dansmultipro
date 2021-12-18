@@ -17,33 +17,40 @@ class AuthController extends Controller
     }
 
     public function authenticate (Request $request){
-        $fields=$request->validate([            
+        $credentials=$request->validate([            
             'email'=>'required|email:dns',
             'password'=>'required|string',
         ]);
 
         //check email
-        $user=User::where('email',$fields['email'])->first();
+        $user=User::where('email',$credentials['email'])->first();
 
         //check password
-        if(!$user || !Hash::check($fields['password'],$user->password)){
-            return redirect()->intended('/login');
+        if(!$user || !Hash::check($credentials['password'],$user->password)){
+            //return redirect()->intended('/login');
+            return back()->with('loginError','Login failed!');
         }
 
         //get token
         $token=$user->createToken('myapptoken')->plainTextToken;
 
-        return redirect()->intended('/');
 
-        //dd("berajsl login");
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+            return redirect()->intended('/home');
+        }
         
     }
 
     public function logout(Request $request){
         auth()->user()->tokens()->delete();
 
-        return[
-            'message'=>'Logged out'
-        ];
+        Auth::logout();
+
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect('/login');
     }
 }

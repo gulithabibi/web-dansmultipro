@@ -16,12 +16,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get("/login",[AuthController::class,'login']);
+Route::get("/login",[AuthController::class,'login'])->middleware('guest');
 Route::post("/login",[AuthController::class,'authenticate']);
+Route::post("/logout",[AuthController::class,'logout']);
 
 
 //Route::group(['middleware'=>['auth:sanctum']], function () {
     Route::get('/',[JobController::class,'index']);
+    Route::get('/home',[JobController::class,'index']);
     Route::get('/page/{page}',[JobController::class,'index']);
 
     Route::get('/detail/{id}',[JobController::class,'detail']);

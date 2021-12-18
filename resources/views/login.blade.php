@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Signin Template · Bootstrap v5.1</title>
+    <title>Dans Multipro | Login</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
 
@@ -36,7 +36,21 @@
     <link href="css/signin.css" rel="stylesheet">
   </head>
   <body class="">
-    
+<div class="container">
+
+
+<div class="row justify-content-center">
+  <div class="col-md-4">
+
+
+
+@if(session()->has('loginError'))
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ session('loginError') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"> </button>
+</div>
+@endif
+
 <main class="form-signin">
   <form action="/login" method="post">
   @csrf
@@ -61,7 +75,9 @@
   </form>
   <small class="d-block text-center mt-3">Not regisetered ? <a href="/register">Register</a></small>
 </main>
-
+</div>
+</div>
+</div>  
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
